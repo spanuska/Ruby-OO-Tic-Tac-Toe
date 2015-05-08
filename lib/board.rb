@@ -5,6 +5,7 @@ class Board
 
 	def initialize
 		build_grid
+		print_board
 	end
 
 	def build_grid
@@ -18,7 +19,9 @@ class Board
 		# @grid[2][0] = 7
 		# @grid[2][1] = 8
 		# @grid[2][2] = 9
-		
+	end
+
+	def print_board
 		p @grid.slice(0)
 		p @grid.slice(1)
 		p @grid.slice(2)
