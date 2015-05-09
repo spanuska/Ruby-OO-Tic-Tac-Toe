@@ -1,6 +1,6 @@
 class Game
 
-	attr_accessor :board, :move
+	attr_accessor :board, :move, :first_player
 
 	attr_reader :pick_first_player
 
@@ -16,30 +16,33 @@ class Game
 	end
 
 	def assign_first_player
-		if @pick_first_player == "me" || @pick_first_player == "computer"
-			@first_player = pick_first_player
-			pick_character
+		if pick_first_player == "me" 
+			@first_player = HumanPlayer.new
+			@first_player.pick_character
+		elsif pick_first_player == "computer"
+			@first_player = ComputerPlayer.new
+			@first_player.pick_character
 		else
 			puts "Let's try that again. Don't try anything fancy!"
-			@game.pick_first_player
+			pick_first_player
 		end
 	end
 
 	def win_condition
-		
+		# 3 of the same character in a row or in a vertical line
 	end
 
 	def check_for_win
 		# only call this after 5 turns	
-		# if win_condition
+
 	end
 
 	def declare_win
-		
+		"You won!"
 	end
 
 	def declare_tie
-		
+		"You tied!"
 	end
 
 
